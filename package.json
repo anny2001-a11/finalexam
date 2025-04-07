@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "firebase": "^11.4.0",
-    "framer-motion": "^12.6.2",
+    "framer-motion": "^12.6.3",
     "next": "15.1.7",
     "next-auth": "^4.24.11",
     "react": "^19.0.0",

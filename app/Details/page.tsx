@@ -195,7 +195,7 @@ export default function Detail() {
 
         {/* Next Button */}
         <div className="text-center mt-10 mb-10">
-          <Link href="/Review" passHref>
+          <Link href="/review" passHref>
             <button className="w-full p-4 bg-blue-500 text-white shadow-lg">
               ໜ້າຕໍ່ໄປ
               <FaArrowRight className="ml-2" />

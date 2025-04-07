@@ -3,7 +3,8 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { FaStar, FaRegStar, FaQuoteLeft, FaUser, FaThumbsUp, FaShare, FaHeart } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-
+import Link from "next/link";
+import houseclean from '../images/house.png';
 export default function ReviewPage() {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
@@ -85,7 +86,7 @@ export default function ReviewPage() {
       setIsLoading(false);
       
       // Scroll to the new review
-      document.getElementById(review-${reviewToAdd.id})?.scrollIntoView({
+      document.getElementById(`review-${reviewToAdd.id}`)?.scrollIntoView({
         behavior: "smooth"
       });
     }, 1000);
@@ -141,7 +142,7 @@ export default function ReviewPage() {
       
       <header className="bg-green-400 w-full p-4 flex justify-between items-center">
         <div className="flex items-center space-x-2">
-          <Image src="/home.jpg" alt="Clean House Logo" width={50} height={50} />
+          <Image src="/houseclean.jpg" alt="Clean House Logo" width={50} height={50} />
           <h1 className="text-xl font-bold text-purple-700">Clean House</h1>
         </div>
         <select className="border p-1 rounded">
@@ -176,7 +177,7 @@ export default function ReviewPage() {
                 {[1, 2, 3, 4, 5].map((star) => (
                   <FaStar 
                     key={star} 
-                    className={text-${star <= Math.round(averageRating) ? 'yellow' : 'gray'}-500 text-xl}
+                    className={`text-${star <= Math.round(averageRating) ? 'yellow' : 'gray'}-500 text-xl`}
                   />
                 ))}
               </div>
@@ -251,7 +252,7 @@ export default function ReviewPage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               disabled={isLoading}
-              className={bg-blue-500 text-white px-4 py-2 rounded flex items-center justify-center ${isLoading ? 'opacity-70' : 'hover:bg-blue-600'}}
+              className={`bg-blue-500 text-white px-4 py-2 rounded flex items-center justify-center ${isLoading ? 'opacity-70' : 'hover:bg-blue-600'}`}
             >
               {isLoading ? (
                 <>
@@ -274,10 +275,10 @@ export default function ReviewPage() {
             <motion.button
               key={filter}
               whileTap={{ scale: 0.95 }}
-              className={px-4 py-2 rounded-full ${activeFilter === filter ? 'bg-blue-500 text-white' : 'bg-white text-gray-700'}}
+              className={`px-4 py-2 rounded-full ${activeFilter === filter ? 'bg-blue-500 text-white' : 'bg-white text-gray-700'}`}
               onClick={() => setActiveFilter(filter)}
             >
-              {filter === 'all' ? 'ທັງໝົດ' : ${filter} ດາວ}
+              {filter === 'all' ? 'ທັງໝົດ' : `${filter} ດາວ`}
             </motion.button>
           ))}
         </div>
@@ -290,7 +291,7 @@ export default function ReviewPage() {
             {filteredReviews.map((review) => (
               <motion.div
                 key={review.id}
-                id={review-${review.id}}
+                id={`review-${review.id}`}
                 variants={reviewVariants}
                 initial="hidden"
                 animate="visible"
@@ -325,7 +326,7 @@ export default function ReviewPage() {
                     <div className="flex justify-end space-x-4 mt-4">
                       <motion.button 
                         whileTap={{ scale: 0.9 }}
-                        className={flex items-center space-x-1 ${review.liked ? 'text-red-500' : 'text-gray-500'}}
+                        className={`flex items-center space-x-1 ${review.liked ? 'text-red-500' : 'text-gray-500'}`}
                         onClick={() => handleLike(review.id)}
                       >
                         <FaHeart />
@@ -340,14 +341,38 @@ export default function ReviewPage() {
                         <FaShare />
                         <span>{review.shares}</span>
                       </motion.button>
+                      
                     </div>
+
                   </div>
                 </div>
+
               </motion.div>
+              
+              
+
             ))}
           </AnimatePresence>
+          <AnimatePresence>
+  
+    
+
+</AnimatePresence>
+
+{/* ปุ่มลิงก์ไปหน้าถัดไป */}
+<div className="flex justify-center mt-6">
+  <Link href="/next">
+    <button className="bg-blue-500 text-white py-2 px-6 rounded-lg border border-blue-700 hover:bg-blue-600 transition">
+      ຖັດໄປ
+    </button>
+  </Link>
+</div>
+
+          
         </div>
+
       </div>
-    </div>
-  );
+      
+    </div>
+  );
 }

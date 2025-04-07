@@ -12,23 +12,20 @@ export default function Detail() {
   const [isLoading, setIsLoading] = useState(false);
   const [shake, setShake] = useState(false);
 
-  // ข้อมูลบริการ
   const services = [
-    { id: 1, name: "ທຳຄວາມສະອາດບ້ານ", image: "/maebarn-1.jpg", popular: true },
-    { id: 2, name: "ທຳຄວາມສະອາດຫ້ອງນອນ", image: "/maebarn-2.jpg", popular: false },
-    { id: 3, name: "ທຳຄວາມສະອາດຫ້ອງນ້ຳ", image: "/maebarn-3.jpg", popular: true },
-    { id: 4, name: "ທຳຄວາມສະອາດຄົວ", image: "/maebarn-4.jpg", popular: false },
-    { id: 5, name: "ລ້າງເຄື່ອງນຸ່ງ", image: "/maebarn-5.jpg", popular: true },
-    { id: 6, name: "ທຳຄວາມສະອາດຫຼັງຄາ", image: "/maebarn-6.jpg", popular: false }
+    { id: 1, name: "ທຳຄວາມສະອາດບ້ານ", image: "/l1.jpeg", popular: true },
+    { id: 2, name: "ທຳຄວາມສະອາດຫ້ອງນອນ", image: "/l2.jpeg", popular: false },
+    { id: 3, name: "ທຳຄວາມສະອາດຫ້ອງນ້ຳ", image: "/l3.jpg", popular: true },
+    { id: 4, name: "ທຳຄວາມສະອາດຄົວ", image: "/a1.jpeg", popular: false },
+    { id: 5, name: "ລ້າງເຄື່ອງນຸ່ງ", image: "/a2.jpeg", popular: true },
+    { id: 6, name: "ທຳຄວາມສະອາດຫຼັງຄາ", image: "/a3.jpg", popular: false }
   ];
 
-  // ฟังก์ชันเลือกบริการ
   const toggleService = (serviceId) => {
     if (selectedItems.includes(serviceId)) {
       setSelectedItems(selectedItems.filter(id => id !== serviceId));
     } else {
       setSelectedItems([...selectedItems, serviceId]);
-      // เอฟเฟกต์เมื่อเลือก
       setShake(true);
       setTimeout(() => setShake(false), 500);
     }
@@ -41,14 +38,12 @@ export default function Detail() {
       return;
     }
     setIsLoading(true);
-    // สมมติเรียก API หรือประมวลผลข้อมูล
     setTimeout(() => {
-      router.push("/Details");
+      router.push("/chooes");
       setIsLoading(false);
     }, 1000);
   };
 
-  // เอฟเฟกต์เมื่อโหลดหน้า
   useEffect(() => {
     document.body.style.overflow = "hidden";
     setTimeout(() => {
@@ -70,7 +65,7 @@ export default function Detail() {
           <span>Clean House</span>
         </span>
       </div>
-      
+
       <header className="bg-green-400 w-full p-4 flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <img src="/home.jpg" alt="Clean House Logo" width={50} height={50} />
@@ -99,8 +94,8 @@ export default function Detail() {
           ເລືອກບໍລິການທີ່ທ່ານຕ້ອງການ
         </motion.p>
       </motion.div>
-      
-      {/* Grid บริการ */}
+
+      {/* Grid */}
       <div className="w-5/6 mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
@@ -128,7 +123,7 @@ export default function Detail() {
                   ນິຍົມ
                 </motion.div>
               )}
-              
+
               <div className="flex flex-col items-center">
                 <motion.div 
                   whileHover={{ rotate: selectedItems.includes(service.id) ? 0 : 2 }}
@@ -142,12 +137,11 @@ export default function Detail() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </motion.div>
-                
                 <h3 className="mt-3 text-lg font-semibold text-gray-800 text-center">
                   {service.name}
                 </h3>
               </div>
-              
+
               {selectedItems.includes(service.id) ? (
                 <motion.div 
                   initial={{ scale: 0 }}
@@ -190,9 +184,9 @@ export default function Detail() {
         )}
       </AnimatePresence>
 
-      {/* ปุ่มเลือกบริการ */}
+      {/* Buttons */}
       <motion.div 
-        className={mt-8 mb-12 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 ${shake ? 'animate-shake' : ''}}
+        className={`mt-8 mb-12 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 ${shake ? 'animate-shake' : ''}`}
         animate={shake ? { x: [-5, 5, -5, 5, 0] } : {}}
         transition={{ duration: 0.5 }}
       >
@@ -205,7 +199,7 @@ export default function Detail() {
           <FaTimes />
           <span>ຍົກເລີກ</span>
         </motion.button>
-        
+
         <motion.button
           onClick={handleConfirm}
           disabled={isLoading || selectedItems.length === 0}
@@ -255,14 +249,14 @@ export default function Detail() {
             }}
             className="absolute w-2 h-2 bg-blue-300 rounded-full"
             style={{
-              left: ${Math.random() * 100}%,
-              top: ${Math.random() * 100}%,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
             }}
           />
         ))}
       </div>
 
-      {/* Global Styles */}
+      {/* Global CSS */}
       <style jsx global>{`
         @keyframes shake {
           0%, 100% { transform: translateX(0); }
@@ -273,6 +267,6 @@ export default function Detail() {
           animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
         }
       `}</style>
-    </div>
-  );
+    </div>
+  );
 }
