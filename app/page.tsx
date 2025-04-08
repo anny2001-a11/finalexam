@@ -20,6 +20,8 @@ export default function Home() {
     { href: "/chooes", text: "chooes", color: "bg-green-500 hover:bg-green-500" },
     { href: "/details", text: "details", color: "bg-green-500 hover:bg-green-500" },
     { href: "/review", text: "review", color: "bg-red-500 hover:bg-red-500" },
+    { href: "/review", text: "about", color: "bg-red-500 hover:bg-red-500" },
+
   ];
 
 
@@ -147,9 +149,7 @@ export default function Home() {
 
             
           ))}
-          <h1> Avern SAYTHONGDETH</h1>
-          <h1> Anhny HEUANGPASIRD</h1>
-          <h1> Valentine KSD</h1>
+          
         </div>
       </motion.div>
     </div>

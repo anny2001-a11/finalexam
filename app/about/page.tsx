@@ -5,15 +5,16 @@ const About = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Head>
-        <title>ຂໍ້ມູນຂອງລະບົບpos ຮ້ານDay Coffee</title>
+        <title>ຂໍ້ມູນຂອງລະບົບ House Clean</title>
         <meta name="description" content="ข้อมูลเกี่ยวกับบริษัทและทีมงานของเรา" />
       </Head>
 
       <main className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">ຂໍ້ມູນຂອງລະບົບpos ຮ້ານDay Coffee</h1>
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">ຂໍ້ມູນຂອງບໍລິສັດ House Clean</h1>
         
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4">ລະບົບຂອງເຮົາຈະມີຫນ້າHome.table.Menu.Sales history.Shift</h2>
+          <h2 className="text-2xl font-semibold text-gray-700 mb-4">ລະບົບຂອງເຮົາຈະມີຫນ້າ
+            Home.login.chooes.service.details.review.about</h2>
         </section>
 
         <section className="mb-8">
@@ -41,15 +42,15 @@ const About = () => {
 // ข้อมูลทีมงานตัวอย่าง
 const teamMembers = [
   {
-    name: "ທທ້າວອາເຫວີນ ໄຊທອງເດດ",
-    position: "ຮັບຜິດຊອບທູກໜ້າຊ່ວຍກັນ",
+    name: "ທ້າວອາເຫວີນ ໄຊທອງເດດ",
+    position: "ຮັບຜິດຊອບທຸກໜ້າຊ່ວຍກັນ",
   },
   {
     name: "ນາງອັນນີ ເຮືອງປະເສິດ",
-    position: "ຮັບຜິດຊອບທູກໜ້າຊ່ວຍກັນ",
+    position: "ຮັບຜິດຊອບທຸກໜ້າຊ່ວຍກັນ",
   },
   {
-    name: "ທ້າວວາເລັນທາຍ",
+    name: "ທ້າວວາເລັນທາຍ ກິງສະດາ",
     position: "",
 
   },

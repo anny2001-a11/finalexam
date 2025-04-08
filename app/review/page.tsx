@@ -142,7 +142,10 @@ export default function ReviewPage() {
       
       <header className="bg-green-400 w-full p-4 flex justify-between items-center">
         <div className="flex items-center space-x-2">
-          <Image src="/houseclean.jpg" alt="Clean House Logo" width={50} height={50} />
+          <Image src="/houseclean.jpg" 
+          alt="Clean House Logo" 
+          width={50}
+          height={50} />
           <h1 className="text-xl font-bold text-purple-700">Clean House</h1>
         </div>
         <select className="border p-1 rounded">
@@ -361,7 +364,7 @@ export default function ReviewPage() {
 
 {/* ปุ่มลิงก์ไปหน้าถัดไป */}
 <div className="flex justify-center mt-6">
-  <Link href="/next">
+  <Link href="/about">
     <button className="bg-blue-500 text-white py-2 px-6 rounded-lg border border-blue-700 hover:bg-blue-600 transition">
       ຖັດໄປ
     </button>
@@ -374,5 +377,6 @@ export default function ReviewPage() {
       </div>
       
     </div>
+    
   );
 }
